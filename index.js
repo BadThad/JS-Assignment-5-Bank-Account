@@ -18,7 +18,7 @@ const account = {
             alert(`Error: please enter a valid amount.`);
             this.deposit();
         } else {
-            balance += deposit;
+            this.balance += deposit;
             this.getBalance();
         }
     },
@@ -29,7 +29,7 @@ const account = {
             alert(`Error: please enter a valid amount.`);
             this.withdraw();
         } else {
-            balance -= withdraw;
+            this.balance -= withdraw;
             this.getBalance();
         }
     },
@@ -56,9 +56,13 @@ const account = {
     
         switch (message) {
             case 1: this.getAccountName();
+            this.atm;
             case 2: this.getBalance();
+            this.atm;
             case 3: this.deposit();
+            this.atm;
             case 4: this.withdraw();
+            this.atm;
             case 5: this.exitAccount();
         }
     },
