@@ -2,52 +2,52 @@ const account = {
     accountName: "John",
     balance: 1000,
     
-    getAccountName: function() {
+    getAccountName() {
         alert(`Hello ${this.accountName}, welcome to your account.`);
-        atm();
+        this.atm();
     },
     
-    getBalance: function() {
+    getBalance() {
         alert(`Your current balance is $${this.balance}`);
-        atm();
+        this.atm();
     },
 
-    deposit: function() {
+    deposit() {
         const deposit = parseFloat(prompt("How much would you like to deposit?"));
         if (isNaN(deposit) || deposit === '' || deposit < 0) {
-                alert(`Error: please enter a valid amount.`);
-                deposit();
+            alert(`Error: please enter a valid amount.`);
+            this.deposit();
         } else {
             balance += deposit;
             this.getBalance();
         }
     },
 
-    withdraw: function() {
+    withdraw() {
         const withdraw = parseFloat(prompt("How much would you like to withdraw?"));
         if (isNaN(withdraw) || withdraw === '' || withdraw < 0) {
-                alert(`Error: please enter a valid amount.`);
-                withdraw();
+            alert(`Error: please enter a valid amount.`);
+            this.withdraw();
         } else {
             balance -= withdraw;
             this.getBalance();
         }
     },
 
-    error: function() {
+    error() {
         alert("Error: please pick a number between 1 - 5.");
     },
 
-    exitAccount: function() {
+    exitAccount() {
         const confirm_exit = confirm("Exiting program.");
         if (confirm_exit) {
             window.close();
         } else {
-            atm();
+            this.atm();
         }
     },
 
-    atm: function() {
+    atm() {
         const message = parseFloat (
             prompt(
                 "Select a number 1.) Get account name, 2.) See balance, 3.) Make a deposit, 4.) Make a withdrawal, 5.) Exit"
@@ -55,11 +55,13 @@ const account = {
         );
     
         switch (message) {
-            case 1: getAccountName();
-            case 2: getBalance();
-            case 3: deposit();
-            case 4: withdraw();
-            case 5: exit();
+            case 1: this.getAccountName();
+            case 2: this.getBalance();
+            case 3: this.deposit();
+            case 4: this.withdraw();
+            case 5: this.exitAccount();
         }
-    }
+    },
 }
+
+account.atm();
