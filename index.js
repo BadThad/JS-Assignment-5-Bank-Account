@@ -36,6 +36,7 @@ const account = {
 
     error() {
         alert("Error: please pick a number between 1 - 5.");
+        this.atm();
     },
 
     exitAccount() {
@@ -54,16 +55,30 @@ const account = {
             )
         );
     
-        switch (message) {
-            case 1: this.getAccountName();
-            this.atm;
-            case 2: this.getBalance();
-            this.atm;
-            case 3: this.deposit();
-            this.atm;
-            case 4: this.withdraw();
-            this.atm;
-            case 5: this.exitAccount();
+        // switch (message) {
+        //     case 1: this.getAccountName();
+        //     this.atm;
+        //     case 2: this.getBalance();
+        //     this.atm;
+        //     case 3: this.deposit();
+        //     this.atm;
+        //     case 4: this.withdraw();
+        //     this.atm;
+        //     case 5: this.exitAccount();
+        // }
+
+        if (message === 1) {
+            this.getAccountName();
+        } else if (message === 2) {
+            this.getBalance();
+        } else if (message === 3) {
+            this.deposit();
+        } else if (message === 4) {
+            this.withdraw();
+        } else if (message === 5) {
+            this.exitAccount();
+        } else {
+            this.error();
         }
     },
 }
