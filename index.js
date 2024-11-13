@@ -14,7 +14,7 @@ const account = {
 
     deposit() {
         const deposit = parseFloat(prompt("How much would you like to deposit?"));
-        if (isNaN(deposit) || deposit === '' || deposit < 0) {
+        if (isNaN(deposit) || deposit === '' || deposit <= 0) {
             alert(`Error: please enter a valid amount.`);
             this.deposit();
         } else {
@@ -25,7 +25,7 @@ const account = {
 
     withdraw() {
         const withdraw = parseFloat(prompt("How much would you like to withdraw?"));
-        if (isNaN(withdraw) || withdraw === '' || withdraw < 0) {
+        if (isNaN(withdraw) || withdraw === '' || withdraw <= 0 || withdraw > this.balance) {
             alert(`Error: please enter a valid amount.`);
             this.withdraw();
         } else {
